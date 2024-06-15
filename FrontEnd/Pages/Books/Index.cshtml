@@ -1,0 +1,35 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Books";
+}
+
+<h1>Books</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>ISBN</th>
+            <th>Year</th>
+            <th>Category</th>
+            <th>Status</th>
+            <th>Authors</th>
+        </tr>
+    </thead>
+    <tbody>
+@*         @foreach (var book in Model.Books)
+        {
+            <tr>
+                <td>@book.Id</td>
+                <td>@book.Title</td>
+                <td>@book.ISBN</td>
+                <td>@book.ReleaseYear</td>
+                <td>@book.Category</td>
+                <td>@book.Status</td>
+                <td>@string.Join(", ", book.Authors.Select(a => $"{a.Name} {a.Surname}"))</td>
+            </tr>
+        }
+ *@    </tbody>
+</table>

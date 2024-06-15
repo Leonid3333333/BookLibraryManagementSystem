@@ -1,0 +1,47 @@
+﻿@page
+@model CreateModel
+@{
+    ViewData["Title"] = "Create Book";
+}
+
+<h1>Create Book</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Book.Title"></label>
+        <input asp-for="Book.Title" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Book.ISBN"></label>
+        <input asp-for="Book.ISBN" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Book.ReleaseYear"></label>
+        <input asp-for="Book.ReleaseYear" class="form-control" />
+    </div>
+    <div class="form-group">
+@*         <label asp-for="Book.Category"></label>
+        <select asp-for="Book.Category" class="form-control">
+            @foreach (var category in Enum.GetValues(typeof(BookCategory)))
+            {
+                <option value="@category">@category</option>
+            }
+        </select>
+ *@    </div>
+    <div class="form-group">
+@*         <label asp-for="Book.Status"></label>
+        <select asp-for="Book.Status" class="form-control">
+            @foreach (var status in Enum.GetValues(typeof(BookStatus)))
+            {
+                <option value="@status">@status</option>
+            }
+        </select>
+ *@    </div>
+    <div class="form-group">
+        <label>Authors</label>
+        <input type="text" name="Authors[0].Name" placeholder="Author Name" class="form-control" />
+        <input type="text" name="Authors[0].Surname" placeholder="Author Surname" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+

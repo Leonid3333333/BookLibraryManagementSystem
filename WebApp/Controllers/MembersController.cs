@@ -44,7 +44,7 @@ namespace BookLibraryManagementSystem.Controllers
         //    return CreatedAtAction(nameof(GetMember), new { id = member.Id }, member);
         //}
 
-        [HttpPut("{id}")]
+        [HttpPut("UpdateMember")]
         public IActionResult EditMember(int id, Member updatedMember)
         {
             if (id != updatedMember.Id)
@@ -73,7 +73,7 @@ namespace BookLibraryManagementSystem.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("DeleteMember")]
         public IActionResult DeleteMember(int id)
         {
             var member = _context.Members.Find(id);
