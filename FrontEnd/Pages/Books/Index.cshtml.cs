@@ -16,8 +16,5 @@ public class IndexModel : PageModel
 
     public List<Book> Books { get; set; }
 
-    public async Task OnGetAsync()
-    {
-        Books = await _httpClient.GetFromJsonAsync<List<Book>>("https://localhost:5001/api/books");
-    }
+    public async Task OnGetAsync() => Books = await _httpClient.GetFromJsonAsync<List<Book>>("https://localhost:5001/api/books");
 }

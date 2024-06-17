@@ -17,10 +17,7 @@ namespace BookLibraryManagementSystem.Controllers
             _context = context;
         }
 
-        //[HttpGet]
-        //public ActionResult<IEnumerable<TransactionLog>> GetTransactionLogs()
-        //{
-        //    return _context.TransactionLogs.ToList();
-        //}
+        [HttpGet("GetTransactions")]
+        public ActionResult<IEnumerable<TransactionLog>> GetTransactionLogs() => _context.TransactionLogs.ToList();
     }
 }

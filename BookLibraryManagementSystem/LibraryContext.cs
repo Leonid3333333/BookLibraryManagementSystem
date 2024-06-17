@@ -6,18 +6,23 @@ namespace BookLibraryManagementSystem
 {
     public class LibraryContext : DbContext
     {
+        public LibraryContext()
+        {
+        }
+
+        public LibraryContext(DbContextOptions options) : base(options)
+        {
+        }
+
         public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Member> Members { get; set; }
         public DbSet<TransactionLog> TransactionLogs { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder
                 .UseSqlServer(@"Server=localhost;Database=BookLibrary;Trusted_Connection=True;TrustServerCertificate=True;")
                 .EnableSensitiveDataLogging()
                 .LogTo(Console.WriteLine, LogLevel.Information);
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

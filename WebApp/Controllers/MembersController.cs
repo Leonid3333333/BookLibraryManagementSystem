@@ -18,31 +18,28 @@ namespace BookLibraryManagementSystem.Controllers
             _context = context;
         }
 
-        //[HttpGet("GetMembers")]
-        //public ActionResult<IEnumerable<Member>> GetMembers()
-        //{
-        //    return _context.Members.ToList();
-        //}
+        [HttpGet("GetMembers")]
+        public ActionResult<IEnumerable<Member>> GetMembers() => _context.Members.ToList();
 
-        //[HttpGet("GetMember")]
-        //public ActionResult<Member> GetMember(int id)
-        //{
-        //    var member = _context.Members.Find(id);
-        //    if (member == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return member;
-        //}
+        [HttpGet("GetMember")]
+        public ActionResult<Member> GetMember(int id)
+        {
+            var member = _context.Members.Find(id);
+            if (member == null)
+            {
+                return NotFound();
+            }
+            return member;
+        }
 
-        //[HttpPost("AddMember")]
-        //public ActionResult<Member> AddMember(Member member)
-        //{
-        //    _context.Members.Add(member);
-        //    _context.SaveChanges();
+        [HttpPost("AddMember")]
+        public ActionResult<Member> AddMember(Member member)
+        {
+            _context.Members.Add(member);
+            _context.SaveChanges();
 
-        //    return CreatedAtAction(nameof(GetMember), new { id = member.Id }, member);
-        //}
+            return CreatedAtAction(nameof(GetMember), new { id = member.Id }, member);
+        }
 
         [HttpPut("UpdateMember")]
         public IActionResult EditMember(int id, Member updatedMember)

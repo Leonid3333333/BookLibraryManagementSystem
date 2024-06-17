@@ -21,10 +21,7 @@ public class CreateModel : PageModel
     [BindProperty]
     public List<Author> Authors { get; set; } = new List<Author>();
 
-    public IActionResult OnGet()
-    {
-        return Page();
-    }
+    public IActionResult OnGet() => Page();
 
     public async Task<IActionResult> OnPostAsync()
     {
